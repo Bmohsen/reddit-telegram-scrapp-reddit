@@ -20,11 +20,12 @@ images_list = []  # local image list
 images_url = []  # external image list
 
 
-def dl_reddit_memes(step, scrollheight, headless):
+def dl_reddit_memes(step, scrollheight, headless, download):
     """
      @param step:step to scroll default : 5000
      @param scrollheight: scroll height of page
      @param headless: open driver GUI (True or false)
+     @param download : (download memes localy?)True or false
     """
     options = Options()
     # change to false if you want to see firefox
@@ -55,16 +56,18 @@ def dl_reddit_memes(step, scrollheight, headless):
                     images_url.append(i.get_attribute('src'))
                     # get image src binary
                     img = requests.get(i.get_attribute('src')).content
-                    # save each image into it file with random number
-                    with open(imgName := folderPath + "/" + "meme-" + str(random.randrange(5000)) + ".jpg", "wb") as f:
-                        f.write(img)
-                        print(imgName + " downloaded into " + folderPath)
+                    if(download == True):
+                        # save each image into it file with random number
+                        with open(imgName := folderPath + "/" + "meme-" + str(random.randrange(5000)) + ".jpg", "wb") as f:
+                            f.write(img)
+                            print(imgName + " downloaded into " + folderPath)
+                        # success message
+                        print("all memes downloaded succefully!")
                         # append image local name to images_list
                         images_list.append(imgName)
     # get the error on close the driver
     except StaleElementReferenceException:
         print(StaleElementReferenceException.msg)
         driver.close()
-    print("all memes downloaded succefully!")
     driver.close()
 

@@ -12,6 +12,7 @@
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+memes-*
 
 .idea/.gitignore
 .idea/inspectionProfiles/
