@@ -7,4 +7,5 @@ i wrote this project for fun , it can scrap hottest memes of day from [https://w
  - after activating virtual environments install requirements with `pip install requirments.txt` or `pip3 install requirments.txt` 
  - rename `.env-sample` to `.env`
  - copy and paste your telegram bot api in `.env` file , ([how to get bot api](https://core.telegram.org/bots))
+ - replace your channel ID in `.env` file
  - run the telegram_bot.py with `python telegram_bot.py` or `python3 telegram_bot.py`
