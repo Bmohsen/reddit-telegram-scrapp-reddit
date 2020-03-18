@@ -13,6 +13,7 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 memes-*
+geckodriver.log
 
 .idea/.gitignore
 .idea/inspectionProfiles/
