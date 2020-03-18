@@ -46,7 +46,7 @@ class Reddit:
                 counter += self.step
                 # time.sleep(1)
             time.sleep(scrollPauseTime)
-            if not path.exists(folderPath) and self.download == True:
+            if not path.exists(folderPath):
                 # make new directory for images
                 os.mkdir(folderPath)
                 for i in driver.find_elements_by_class_name('ImageBox-image'):
