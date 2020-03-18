@@ -2,12 +2,15 @@ import logging
 from telegram.ext import Updater
 from scrapty import *
 from telegram.ext import CommandHandler
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # log any errors
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 # telegram token
-botToken = "998044371:AAFpfhXXr8j-V3C8gK5nfTXghws7Z7SoBmE"
+botToken = os.getenv('BOT_TOKEN')
 
 # logging.basicConfig(level=logging.DEBUG,
 #                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

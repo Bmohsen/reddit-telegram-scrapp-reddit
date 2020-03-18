@@ -15,7 +15,7 @@ pip-selfcheck.json
 memes-*
 geckodriver.log
 .vscode
-
+.env
 .idea/.gitignore
 .idea/inspectionProfiles/
 .idea/misc.xml
