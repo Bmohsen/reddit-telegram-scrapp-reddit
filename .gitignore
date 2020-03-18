@@ -14,6 +14,7 @@ pyvenv.cfg
 pip-selfcheck.json
 memes-*
 geckodriver.log
+.vscode
 
 .idea/.gitignore
 .idea/inspectionProfiles/
