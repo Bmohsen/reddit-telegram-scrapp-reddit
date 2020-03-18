@@ -26,11 +26,12 @@ def start(update, context):
 
 def send(update, context):
     # call the scrapper
-    dl_reddit_memes(5000, 100000, True, False)
+    downloader = Reddit()
+    downloader.dl_reddit_memes(5000, 50000, True, False)
     for image in images_url:
         context.bot.send_photo(chat_id="@toplessmemes", photo=image,
                                caption="Join top memes: https://t.me/toplessmemes \n")
-        time.sleep(15) # 15 sec pause before sending
+        # time.sleep(2) # 15 sec pause before sending
         print( image + " send to channel " + str(t.now())) # cmd log
 
 
