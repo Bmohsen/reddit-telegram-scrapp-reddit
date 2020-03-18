@@ -36,24 +36,19 @@ class Reddit:
         # change to false if you want to see firefox
         options.headless = self.headless
         counter = 5000
-        # create new browser
         driver = webdriver.Firefox(options=options)
         try:
             print("loading page (it depeneds on your internet speed) ... please wait")
-            # open the URL
             driver.get(url)
-            # scroll the page
             while counter <= self.scrollhight:
                 # excute javascript that scroll the page
                 driver.execute_script("window.scrollTo(0," + str(counter) + ");")
                 counter += self.step
                 # time.sleep(1)
             time.sleep(scrollPauseTime)
-            # check for path to not exists
             if not path.exists(folderPath) and self.download == True:
                 # make new directory for images
                 os.mkdir(folderPath)
-                # loop through image src attributes
                 for i in driver.find_elements_by_class_name('ImageBox-image'):
                     # check image source if faild to get
                     if i.get_attribute('src') != "None" or i.get_attribute('src') != "none":
@@ -66,11 +61,9 @@ class Reddit:
                             with open(imgName := folderPath + "/" + "meme-" + str(random.randrange(5000)) + ".jpg", "wb") as f:
                                 f.write(img)
                                 print(imgName + " downloaded into " + folderPath)
-                            # success message
                             print("all memes downloaded succefully!")
                             # append image local name to images_list
                             images_list.append(imgName)
-        # get the error on close the driver
         except StaleElementReferenceException:
             print(StaleElementReferenceException.msg)
             driver.close()
